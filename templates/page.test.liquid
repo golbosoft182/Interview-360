@@ -1,0 +1,218 @@
+<style>
+  .main-content {
+    padding: 0px;
+  }
+  .full-width-title {
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -ms-flexbox; 
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh; 
+    margin: 0;
+  }
+  .full-width-title h1 {
+    margin: 0;
+  }
+  .cstm-heading {
+    background-color: #c2c2c2;
+  }
+  .cstm-text {
+    padding: 75px 0;
+  }
+  .section.cstm-features.main-features .container {
+    width: 768px;
+  }
+  .cstm-features .img-features {
+    background-color: #c2c2c2;
+    max-height: 320px;
+    overflow: hidden;
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -ms-flexbox; 
+    display: -webkit-flex; 
+    display: flex;        
+    align-items: center;  
+    justify-content: center; 
+  }
+  .cstm-features .text-features {
+    display: -webkit-box; 
+    display: -moz-box; 
+    display: -ms-flexbox; 
+    display: -webkit-flex; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; 
+    padding: 0 65px;
+  }
+  .cstm-features .text-features h2 {
+    text-transform: capitalize;
+  }
+  .cstm-features .text-features .btn {
+    background-color: #6658f5;
+    align-self: flex-start;
+    text-transform: none;
+    opacity: 1;
+    border-radius: 5px;
+  }
+  .cstm-features .text-features .btn:hover {
+    opacity: 0.8;
+  }
+  .pb-cstm {
+    padding-bottom: 20vh;  
+  }
+  @media (min-width: 768px) {
+    .order-md-1 {
+      order: 1;
+    }
+    .order-md-2 {
+      order: 2;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .full-width-title {
+      height: 20vh;
+    }
+    .cstm-text {
+      padding: 30px;
+    }
+    .cstm-features .img-features {
+      max-height: 230px;
+      margin-bottom: 20px;
+    }
+    .cstm-features .text-features {
+      padding: 0px;
+    }
+    .cstm-features .text-features {
+      padding-bottom: 35px;
+      
+    }
+    .pb-cstm {
+      padding-bottom: 20px;
+    }
+    .section.cstm-features.main-features .container {
+      width: 100%;
+    }
+    .site-footer {
+      margin-top: 20px;
+    }
+    .p-cstm-foot {
+      padding-top: 35px !important;
+    }
+    .flying-box {
+      display: none;
+    }
+    .section.cstm-features.p-cstm-foot .text-features {
+      padding-left: 0px !important;
+    }
+    .section.cstm-features.p-cstm-foot .container-fluid {
+      padding-right: 15px !important;
+      padding-left: 15px !important;
+    }
+    .section.cstm-features.p-cstm-foot .img-features {
+      max-width: 80%;
+    }
+  }
+  
+</style>
+
+<section class="section cstm-heading">
+  <div class="container-fluid">
+      <div class="text-center full-width-title">
+        <h1>{{ page.title }}</h1>
+      </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+      <div class="text-center cstm-text">
+         {{ page.content }}
+      </div>
+  </div>
+</section>
+<section class="section cstm-features pb-cstm">
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-features">
+            {% capture placeholder_svg %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endcapture %}
+            {% assign placeholder_svg_modified = placeholder_svg | replace: 'viewBox="0 0 1 1"', 'viewBox="0 0 16 9"' | replace: '<svg', '<svg class="img-fluid"' %}
+            {{ placeholder_svg_modified }}
+        </div>
+      </div>
+      <div class="col-md-6 d-flex">
+        <div class="text-features flex-column justify-content-center">
+          <h2>Heading for Right Column</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <a href="your-link " class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-4">
+      <div class="col-md-6 order-md-2">
+        <div class="img-features">
+            {% capture placeholder_svg %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endcapture %}
+            {% assign placeholder_svg_modified = placeholder_svg | replace: 'viewBox="0 0 1 1"', 'viewBox="0 0 16 9"' | replace: '<svg', '<svg class="img-fluid"' %}
+            {{ placeholder_svg_modified }}
+        </div>
+      </div>
+      <div class="col-md-6 order-md-1 d-flex">
+        <div class="text-features flex-column justify-content-center">
+          <h2>Heading for Left Column</h2>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a href="your-link" class="btn btn-primary">Read more</a>
+        </div>
+      </div>        
+    </div>
+  </div>
+</section>
+<section class="section cstm-features main-features">
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-md-3 col-6">
+          <div class="img-features">
+              {% capture placeholder_svg %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endcapture %}
+              {% assign placeholder_svg_modified = placeholder_svg | replace: '<svg', '<svg class="img-fluid"' %}
+              {{ placeholder_svg_modified }}
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="img-features">
+              {% capture placeholder_svg %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endcapture %}
+              {% assign placeholder_svg_modified = placeholder_svg | replace: '<svg', '<svg class="img-fluid"' %}
+              {{ placeholder_svg_modified }}
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="img-features">
+              {% capture placeholder_svg %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endcapture %}
+              {% assign placeholder_svg_modified = placeholder_svg | replace: '<svg', '<svg class="img-fluid"' %}
+              {{ placeholder_svg_modified }}
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="img-features">
+              {% capture placeholder_svg %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endcapture %}
+              {% assign placeholder_svg_modified = placeholder_svg | replace: '<svg', '<svg class="img-fluid"' %}
+              {{ placeholder_svg_modified }}
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
